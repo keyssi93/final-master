@@ -9,10 +9,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       filters: {
-        dateFrom: moment(new Date()).format("YYYY-MM-DD"),
+        dateFrom: moment(new Date()).format("DD-MM-YYYY"),
         dateTo: moment()
           .add(1, "month")
-          .format("YYYY-MM-DD"),
+          .format("DD-MM-YYYY"),
         country: '',
         price: '',
         rooms: ''
@@ -45,8 +45,8 @@ class App extends React.Component {
   filterHotels(filters,hotels) {
     const { dateFrom, dateTo, country, price, rooms} = this.state.filters;
     return hotels.filter(hotel => {
-       return moment(hotel.availabilityFrom).format("YYYY-MM-DD") >= dateFrom &&
-             moment(hotel.availabilityTo).format("YYYY-MM-DD") <= dateTo &&
+       return moment(hotel.availabilityFrom).format("DD-MM-YYYY") >= dateFrom &&
+             moment(hotel.availabilityTo).format("DD-MM-YYYY") <= dateTo &&
              hotel.rooms <= (rooms !== '' ? rooms : hotel.rooms) &&
              hotel.price <=(price !== '' ? parseInt(price) : hotel.price) &&
              hotel.country.trim().toLowerCase() === (country !== '' ? country.trim().toLowerCase() : hotel.country.trim().toLowerCase())
