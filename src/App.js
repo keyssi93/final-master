@@ -1,5 +1,3 @@
-import './App.css';
-import  './data.js';
 //import {today,hotelsData} from './data.js';
 import moment from 'moment';
 import React, { Fragment } from "react";
@@ -9,10 +7,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       filters: {
-        dateFrom: moment(new Date()).format("DD-MM-YYYY"),
+        dateFrom: moment(new Date()),
         dateTo: moment()
-          .add(1, "month")
-          .format("DD-MM-YYYY"),
+          .add(1, "month"),
         country: '',
         price: '',
         rooms: ''
@@ -45,8 +42,8 @@ class App extends React.Component {
   filterHotels(filters,hotels) {
     const { dateFrom, dateTo, country, price, rooms} = this.state.filters;
     return hotels.filter(hotel => {
-       return moment(hotel.availabilityFrom).format("DD-MM-YYYY") >= dateFrom &&
-             moment(hotel.availabilityTo).format("DD-MM-YYYY") <= dateTo &&
+       return moment(hotel.availabilityFrom) >= dateFrom &&
+             moment(hotel.availabilityTo) <= dateTo &&
              hotel.rooms <= (rooms !== '' ? rooms : hotel.rooms) &&
              hotel.price <=(price !== '' ? parseInt(price) : hotel.price) &&
              hotel.country.trim().toLowerCase() === (country !== '' ? country.trim().toLowerCase() : hotel.country.trim().toLowerCase())
@@ -160,8 +157,12 @@ class OptionsFilter extends React.Component {
 class Filters extends React.Component{
   constructor(props) {
     super(props)
+    this.state = {
+      username: 'foo'
+    }
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.handleDateChange = this.handleDateChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleOptionChange(event) {
@@ -183,9 +184,14 @@ class Filters extends React.Component{
     }
   }
 
+  handleClick(event) {
+    this.setState({ username: '' })
+  }
+
   render(){
+    const { username } = this.state
     return (
-      <nav className="navbar is-info" style={ {justifyContent: 'center'} }>
+      <nav  className="navbar is-info" style={ {justifyContent: 'center'} }>
         <div className="navbar-item">
           <DateFilter
             date={ this.props.filters.dateFrom }
@@ -204,7 +210,7 @@ class Filters extends React.Component{
         </div>
         <div className="navbar-item">
           <OptionsFilter
-            options={ [ {value: '', name: 'Todos los países'}, {value: 'Argentina', name: 'Argentina'}, {value: 'Brasil', name: 'Brasil'}, {value: 'Chile', name: 'Chile'}, {value: 'Uruguay', name: 'Uruguay'} ] }
+            options={ [ {value: {username}, name: 'Todos los países'}, {value: 'Argentina', name: 'Argentina'}, {value: 'Brasil', name: 'Brasil'}, {value: 'Chile', name: 'Chile'}, {value: 'Uruguay', name: 'Uruguay'} ] }
             selected={ this.props.filters.country }
             icon="globe"
             onOptionChange={ this.handleOptionChange }
@@ -229,6 +235,10 @@ class Filters extends React.Component{
             name="rooms"
           />
         </div>
+        <div className="navbar-item">
+        <input className="button" type="reset" value="Limpiar" onClick={this.handleClick} ></input>
+        </div>
+       
       </nav>
     )
   }
