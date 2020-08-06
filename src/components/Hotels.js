@@ -1,5 +1,5 @@
 import React from "react";
-import { Hotel } from '../components';
+import  Hotel  from './Hotel';
 
 class Hotels extends React.Component {
  
