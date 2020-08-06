@@ -1,6 +1,8 @@
 import moment from 'moment';
 import React, { Fragment } from "react";
-import { Filters, Hotels , Hero} from './components';
+import {Hero} from './components/Hero';
+import {Filters} from './components/Filters';
+import {Hotels} from './components/Hotels';
 
 class App extends React.Component {
   constructor(props) {
