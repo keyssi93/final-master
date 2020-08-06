@@ -1,7 +1,7 @@
 
 import React from "react";
 
-export default class Hero extends React.Component {
+class Hero extends React.Component {
     render(){
     const formato = {weekday: "long",
     year: "numeric", 
@@ -21,3 +21,5 @@ export default class Hero extends React.Component {
     </section>
     )
   }}
+
+  export default Hero;

@@ -1,8 +1,7 @@
 
 import React from "react";
 
-
-export default  class Hotel extends React.Component {
+class Hotel extends React.Component {
     constructor(props) {
       super(props)
       this.handleClickAction = this.handleClickAction.bind(this)
@@ -62,3 +61,5 @@ export default  class Hotel extends React.Component {
    
     )
   }}
+
+  export default Hotel;

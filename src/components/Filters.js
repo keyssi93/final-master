@@ -2,7 +2,7 @@ import moment from 'moment';
 import React from "react";
 import { DateFilter, OptionsFilter } from '../components';
 
-export default  class Filters extends React.Component{
+class Filters extends React.Component{
     constructor(props) {
       super(props)
       this.state = {
@@ -92,3 +92,5 @@ export default  class Filters extends React.Component{
       )
     }
   }
+
+  export default Filters;

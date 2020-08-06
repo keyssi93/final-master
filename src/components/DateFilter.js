@@ -1,6 +1,6 @@
 import React from "react";
 
-export default  class DateFilter extends React.Component {
+class DateFilter extends React.Component {
     constructor(props){super(props)
     this.handledatechange =this.handledatechange.bind(this)}
 
@@ -20,3 +20,4 @@ export default  class DateFilter extends React.Component {
       )
     }
 }
+export default DateFilter;

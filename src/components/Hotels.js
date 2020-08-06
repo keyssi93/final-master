@@ -1,7 +1,7 @@
 import React from "react";
 import { Hotel } from '../components';
 
-export default  class Hotels extends React.Component {
+class Hotels extends React.Component {
  
     render(){
       const data = this.props.hotels;
@@ -24,3 +24,5 @@ export default  class Hotels extends React.Component {
     )
     }
   }
+
+  export default Hotels;

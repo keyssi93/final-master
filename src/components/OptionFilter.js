@@ -2,7 +2,7 @@
 import React from "react";
 
 
-export default class OptionsFilter extends React.Component { 
+class OptionsFilter extends React.Component { 
     constructor(props) {
       super(props)
       this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -41,3 +41,5 @@ export default class OptionsFilter extends React.Component {
       )
     }
   }
+
+  export default OptionsFilter;
