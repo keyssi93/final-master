@@ -1,4 +1,5 @@
 import React from "react";
+import { Hotel } from '../components';
 
 export default  class Hotels extends React.Component {
  

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Hotel } from '../components'
+
 
 export default  class Hotel extends React.Component {
     constructor(props) {

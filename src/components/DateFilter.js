@@ -1,4 +1,3 @@
-import moment from 'moment';
 import React from "react";
 
 export default  class DateFilter extends React.Component {
